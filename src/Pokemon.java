@@ -12,14 +12,14 @@ public class Pokemon {
         this.nombre = nombre;
         this.tipo = tipo;
         nivel = 1;
-        this.aguante = getAguante();
+        actualizarStats();
     }
 
     public Pokemon(String nombre, String tipo, int nivel){
         this.nombre = nombre;
         this.tipo = tipo;
         this.nivel = nivel;
-        this.aguante = getAguante();
+        actualizarStats();
     }
 
 
@@ -52,14 +52,40 @@ public class Pokemon {
         this.nivel = nivel;
     }
 
-    public int calcularPoder(Pokemon contrincante){
+    public int calcularPoder(Pokemon contrincante) {
         Random ram = new Random();
         int poder;
         int min = nivel * 3;
         int max = nivel * 10 - 1;
-        poder = ram.nextInt(max)+min;
-        return poder;
+        switch (this.nivel) {
+            case 1:
+                poder = ram.nextInt(max) + min;
+                break;
+            case 2:
+                poder = ram.nextInt(max) + min;
+                break;
+            case 3:
+                poder = ram.nextInt(max) + min;
+                break;
+            case 4:
+                poder = ram.nextInt(max) + min;
+                break;
+            default:
+                poder = ram.nextInt(max) + min;
+                break;
         }
+        if ((this.tipo.equals("agua") && contrincante.tipo.equals("fuego")) ||
+                (this.tipo.equals("fuego") && contrincante.tipo.equals("tierra")) ||
+                (this.tipo.equals("tierra") && contrincante.tipo.equals("agua"))) {
+            poder += 2 * this.nivel;
+        } else if ((this.tipo.equals("agua") && contrincante.tipo.equals("tierra")) ||
+                (this.tipo.equals("fuego") && contrincante.tipo.equals("agua")) ||
+                (this.tipo.equals("tierra") && contrincante.tipo.equals("fuego"))) {
+            poder -= 2 * contrincante.nivel;
+        }
+
+        return Math.max(poder, 1);
+    }
 
 
 
