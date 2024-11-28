@@ -1,5 +1,9 @@
 import java.util.Random;
 
+
+/**
+ * clase en la que se crean todos los pokemons.
+ */
 public class Pokemon {
 
     private String nombre;
@@ -28,6 +32,11 @@ public class Pokemon {
 
 // ******************************************
 
+
+    /**
+     * metodos que muestran y calculan las caracteristicas de los pokemons.
+     * @return
+     */
     public int getAguante() {
         return aguante;
     }

@@ -4,6 +4,10 @@
 
 public class Combate {
 
+    /**
+     * @param pokemonJugador es el pokemon que creara el jugador
+     * @param pokemonRival es un pokemon que se creara automaticamente en vase al nivel de tu pokemon
+     */
     // Añada los atributos y el constructor *************
     private Pokemon pokemonJugador;
     private Pokemon pokemonRival;
@@ -34,6 +38,10 @@ public class Combate {
         }
     }
 
+    /**
+     *
+     * @return devolvera el ganador del juego
+     */
     public Pokemon Ganador(){
         if (pokemonJugador.getAguante()<= 0){
             return pokemonRival;

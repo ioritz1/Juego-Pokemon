@@ -24,6 +24,13 @@ public class InterfazPokemon {
         } mostrarJuegoSuperado();
     }
 
+
+    /**
+     * en este metodo se muestra la pelea y despues se llama al metodo que mostrara quien gana.
+     * @param pokemonJugador
+     * @param pokemonRival
+     * @return
+     */
     private Pokemon Partida(Pokemon pokemonJugador, Pokemon pokemonRival){
         Combate comb = new Combate(pokemonJugador, pokemonRival);
         while (pokemonJugador.getAguante() > 0 && pokemonRival.getAguante() > 0){
@@ -33,7 +40,7 @@ public class InterfazPokemon {
             System.out.println("Aguante de " + pokemonRival.getNombre()+ ": " + pokemonRival.getAguante());
             System.out.println("Pulse enter para continuar ...");
             Scanner sc = new Scanner(System.in);
-            sc.nextLine();
+
         }
         Pokemon ganadorComb = comb.Ganador();
         if (ganadorComb == pokemonJugador){
